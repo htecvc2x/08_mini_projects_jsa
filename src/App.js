@@ -29,7 +29,15 @@ class App extends Component {
     }
 
     removeItem = (id) => {
-        console.log('removeItem : ' + id);
+        this.setState(({items}) => {
+            const index = items.findIndex((e) => e.id == id);
+            return {
+                items: [
+                    ...items.slice(0, index),
+                    ...items.slice(index + 1)
+                ]
+            }
+        });
     }
 
   render() {
