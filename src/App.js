@@ -54,7 +54,11 @@ class App extends Component {
     }
 
     toggleItem = (id) => {
-        console.log('toggleItem');
+        this.setState(items => {
+            const index = items.findIndex((e) => e.id == id);
+            items[index].packed = !items[index].packed;
+            return items;
+        });
     }
 
   render() {
