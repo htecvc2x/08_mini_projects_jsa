@@ -17,14 +17,21 @@ class NewItem extends Component {
   };
 
   handleSubmit = event => {
-      console.log('handleSubmit');
+      event.preventDefault();
+      const { onNewItemAdded } = this.props;
+      onNewItemAdded(this.state.value);
+      this.setState(state => {
+          return {
+              value : ''
+          }
+      });
   };
 
   render() {
     const { value } = this.state;
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <div className="row">
           <div className="col-md-10">
             <input className="form-control mb-3" type="text" value={value} onChange={this.handleChange} />

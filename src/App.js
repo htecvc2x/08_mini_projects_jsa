@@ -2,17 +2,38 @@ import React, { Component } from "react";
 import NewItem from "./components/NewItem";
 import ListItems from "./components/ListItems";
 import { defaultState } from "./data";
+import { generate as id } from "shortid";
 
 class App extends Component {
     state = {
         items : defaultState,
     };
 
+    createItem(value) {
+        return {
+            value: value,
+            id: id(),
+            packed: false
+        };
+    }
+
+    addItem = (v) => {
+        this.setState(({items}) => {
+            return {
+                items: [
+                    ...items,
+                    this.createItem(v) 
+                ]
+            }
+        });
+    }
+
+
   render() {
       const {items} = this.state;
     return (
       <div className="container py-3">
-        <NewItem />
+        <NewItem onNewItemAdded={this.addItem} />
         <div className="row">
           <div className="col-md-5">
             <ListItems title="Unpacked Items" items={items} packed={false} />
