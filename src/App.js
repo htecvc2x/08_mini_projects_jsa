@@ -40,6 +40,19 @@ class App extends Component {
         });
     }
 
+    markAllAsUnpacked = () => {
+        const {items} = this.state;
+        this.setState(({items}) => {
+            return {
+                items: 
+                    items.map((item) => {
+                        item.packed = false;
+                        return item;
+                    })
+            }
+        });
+    }
+
   render() {
       const {items} = this.state;
     return (
@@ -51,7 +64,7 @@ class App extends Component {
           </div>
           <div className="offset-md-2 col-md-5">
             <ListItems title="Packed Items" items={items} packed={true} onItemRemoved={this.removeItem} />
-            <button className="btn btn-danger btn-lg btn-block">
+            <button className="btn btn-danger btn-lg btn-block" onClick={this.markAllAsUnpacked}>
               Mark All As Unpacked
             </button>
           </div>
