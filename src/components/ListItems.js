@@ -8,12 +8,13 @@ class ListItems extends Component {
   updateFilter = searchTerm => {};
 
   render() {
-    const { title, items, packed, onItemRemoved} = this.props;
+    const { title, items, packed, 
+        onItemRemoved, onItemToggled} = this.props;
     const elements = items.filter((item) => item.packed == packed).map((item) => {
-      console.log(onItemRemoved);
     return (
         <Item item={item}
-            onItemRemoved={onItemRemoved} />
+            onItemRemoved={onItemRemoved}
+            onItemToggled={onItemToggled}/>
     )
     });
     return (

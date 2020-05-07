@@ -53,6 +53,10 @@ class App extends Component {
         });
     }
 
+    toggleItem = (id) => {
+        console.log('toggleItem');
+    }
+
   render() {
       const {items} = this.state;
     return (
@@ -60,10 +64,10 @@ class App extends Component {
         <NewItem onNewItemAdded={this.addItem} />
         <div className="row">
           <div className="col-md-5">
-            <ListItems title="Unpacked Items" items={items} packed={false} onItemRemoved={this.removeItem} />
+            <ListItems title="Unpacked Items" items={items} packed={false} onItemRemoved={this.removeItem} onItemToggled={this.toggleItem} />
           </div>
           <div className="offset-md-2 col-md-5">
-            <ListItems title="Packed Items" items={items} packed={true} onItemRemoved={this.removeItem} />
+            <ListItems title="Packed Items" items={items} packed={true} onItemRemoved={this.removeItem} onItemToggled={this.toggleItem} />
             <button className="btn btn-danger btn-lg btn-block" onClick={this.markAllAsUnpacked}>
               Mark All As Unpacked
             </button>
