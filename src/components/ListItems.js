@@ -8,8 +8,9 @@ class ListItems extends Component {
   updateFilter = searchTerm => {};
 
   render() {
-    const { title, items } = this.props;
-    const elements = items.map((item) => {
+    const { title, items, packed} = this.props;
+      console.log(packed);
+    const elements = items.filter((item) => item.packed == packed).map((item) => {
     return (
         <Item item={item} />
     )
