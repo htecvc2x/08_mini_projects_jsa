@@ -3,7 +3,7 @@ import "./Item.css";
 
 class Item extends Component {
   render() {
-    const { item } = this.props;
+    const { item , onItemRemoved} = this.props;
     return (
       <li className="item-box">
         <div className="form-check">
@@ -19,7 +19,7 @@ class Item extends Component {
             {item.value}
           </label>
         </div>
-        <button className="btn btn-secondary btn-sm" onClick={() => {}}>
+        <button className="btn btn-secondary btn-sm" onClick={(e) => {onItemRemoved(item.id)}}>
           Remove
         </button>
       </li>
