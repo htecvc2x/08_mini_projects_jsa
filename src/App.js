@@ -10,10 +10,10 @@ class App extends Component {
         <NewItem />
         <div className="row">
           <div className="col-md-5">
-            <ListItems title="Unpacked Items" items={[]} />
+            <ListItems title="Unpacked Items" items={defaultState} />
           </div>
           <div className="offset-md-2 col-md-5">
-            <ListItems title="Packed Items" items={[]} />
+            <ListItems title="Packed Items" items={defaultState} />
             <button className="btn btn-danger btn-lg btn-block">
               Mark All As Unpacked
             </button>
