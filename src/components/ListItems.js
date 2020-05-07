@@ -9,7 +9,6 @@ class ListItems extends Component {
 
   render() {
     const { title, items, packed} = this.props;
-      console.log(packed);
     const elements = items.filter((item) => item.packed == packed).map((item) => {
     return (
         <Item item={item} />
