@@ -28,6 +28,7 @@ class ListItems extends Component {
           .map((item) => {
     return (
         <Item item={item}
+            key={item.id}
             onItemRemoved={onItemRemoved}
             onItemToggled={onItemToggled}/>
     )
