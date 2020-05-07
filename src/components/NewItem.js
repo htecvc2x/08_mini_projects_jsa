@@ -7,11 +7,17 @@ class NewItem extends Component {
   };
 
   handleChange = event => {
+      const value = event.target.value;
+      this.setState(state => {
+          return {
+              value : value
+          }
+      });
     //
   };
 
   handleSubmit = event => {
-    //
+      console.log('handleSubmit');
   };
 
   render() {
@@ -21,7 +27,7 @@ class NewItem extends Component {
       <form>
         <div className="row">
           <div className="col-md-10">
-            <input className="form-control mb-3" type="text" value={value} />
+            <input className="form-control mb-3" type="text" value={value} onChange={this.handleChange} />
           </div>
           <div className="col-md-2">
             <input className="btn btn-success" type="submit" value="Add item" />
